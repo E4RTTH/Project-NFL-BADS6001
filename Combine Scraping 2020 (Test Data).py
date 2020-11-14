@@ -28,3 +28,21 @@ combine.insert(loc=4, column='Wt_kg', value=weight_kg)
 combine.drop(columns = 'Wt', inplace = True)
 
 combine.to_csv("d:/NIDA/Intro BADS/Project BADS6001/Project-NFL--BADS6001-/combine 2020.csv", index = False)
+
+n = []
+
+for i in position_QB.Player:
+  n.append(i.lower().replace('.', '').replace(' ', '-'))
+x = {}
+college = {}
+
+cl = 'https://www.sports-reference.com/cfb/players/{}-1.html'
+
+for c in range(20):
+  cl.replace('1',str(c))
+  for i in n:
+    try:
+      x['{}'.format(i)] = pd.read_html(cl.format(i))
+      college['{}'.format(i)] = x['{}'.format(i)][0]
+    except:
+      pass
