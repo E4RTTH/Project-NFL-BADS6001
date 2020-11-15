@@ -15,7 +15,7 @@ combine = pd.concat(lst,ignore_index=True,)
 
 #Drop row header and Colledge column
 combine.drop(combine[combine['Player'] == 'Player'].index, inplace = True)
-combine.drop('College', axis=1, inplace = True)
+#combine.drop('College', axis=1, inplace = True)
 
 #Change Ht from foot-inche to cm.
 height_cm = []
