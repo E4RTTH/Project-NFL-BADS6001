@@ -3,8 +3,9 @@ import pandas as pd
 combine = pd.read_csv(r'D:\NIDA\Intro BADS\Project BADS6001\Project-NFL--BADS6001-\combine 2010 - 2019.csv',encoding= 'UTF-8')
 qb = combine["Pos"].isin(["QB"])
 position_QB = combine[qb]
-position_QB.to_csv(r'D:\NIDA\Intro BADS\Project BADS6001\Project-NFL--BADS6001-\NameQB.csv',index=False)
+# position_QB.to_csv(r'D:\NIDA\Intro BADS\Project BADS6001\Project-NFL--BADS6001-\NameQB.csv',index=False)
 
+# Code for scraping colledge data QB
 n = []
 
 for i in position_QB.Player:
