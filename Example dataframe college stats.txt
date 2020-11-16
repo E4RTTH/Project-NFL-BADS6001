@@ -1,0 +1,29 @@
+  Unnamed: 0_level_0 Unnamed: 1_level_0 Unnamed: 2_level_0 Unnamed: 3_level_0 Unnamed: 4_level_0 Unnamed: 5_level_0 Tackles                     Def Int                  Fumbles
+                Year             School               Conf              Class                Pos                  G    Solo Ast  Tot  Loss   Sk     Int  Yds Avg   TD PD      FR  Yds   TD FF
+0              *2011          Air Force                MWC                 FR                 DL               13.0       2  22   24   0.5  0.0     0.0  0.0 NaN  0.0  0       0  NaN  NaN  0
+1              *2012          Air Force                MWC                 SO                 DL                NaN      12   8   20   4.0  1.0     NaN  NaN NaN  NaN  1       0  0.0  0.0  1
+2               2013          Air Force                MWC                 JR                 DL               10.0      14  17   31   1.5  1.0     0.0  0.0 NaN  0.0  1       0  NaN  NaN  1
+3              *2014          Air Force                MWC                 SR                 DL               11.0      15  11   26   6.0  2.0     0.0  0.0 NaN  0.0  1       1  NaN  NaN  1
+4             Career          Air Force                NaN                NaN                NaN                NaN      43  58  101  12.0  4.0     0.0  0.0 NaN  0.0  3       1  0.0  0.0  3
+<class 'pandas.core.frame.DataFrame'>
+(5, 20)
+MultiIndex([('Unnamed: 0_level_0',   'Year'),
+            ('Unnamed: 1_level_0', 'School'),
+            ('Unnamed: 2_level_0',   'Conf'),
+            ('Unnamed: 3_level_0',  'Class'),
+            ('Unnamed: 4_level_0',    'Pos'),
+            ('Unnamed: 5_level_0',      'G'),
+            (           'Tackles',   'Solo'),
+            (           'Tackles',    'Ast'),
+            (           'Tackles',    'Tot'),
+            (           'Tackles',     'Sk'),
+            (           'Def Int',    'Int'),
+            (           'Def Int',    'Yds'),
+            (           'Def Int',    'Avg'),
+            (           'Def Int',     'TD'),
+            (           'Def Int',     'PD'),
+            (           'Fumbles',     'FR'),
+            (           'Fumbles',    'Yds'),
+            (           'Fumbles',     'TD'),
+            (           'Fumbles',     'FF')],
+           )
