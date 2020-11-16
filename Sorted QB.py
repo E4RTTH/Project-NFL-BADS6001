@@ -5,24 +5,19 @@ qb = combine["Pos"].isin(["QB"])
 position_QB = combine[qb]
 # position_QB.to_csv(r'D:\NIDA\Intro BADS\Project BADS6001\Project-NFL--BADS6001-\NameQB.csv',index=False)
 
-# # Code for scraping colledge data QB
-# n = [i.lower().replace('.', '').replace(' ', '-') for i in position_QB.Player]
+# Code for scraping colledge data QB
+n = [i.lower().replace('.', '').replace(' ', '-') for i in position_QB.Player]
+x = {}
+college = {}
+cl = 'https://www.sports-reference.com/cfb/players/{}-1.html'
 
-# # for i in position_QB.Player:
-# #   n.append(i.lower().replace('.', '').replace(' ', '-'))
+for i in n:
+  for c in range(1,20):
+    cl.replace('1',str(c))
+    try:
+      x['{}'.format(i)] = pd.read_html(cl.format(i))
+      college['{}'.format(i)] = x['{}'.format(i)][0]
+    except:
+      break
 
-# x = {}
-# college = {}
-
-# cl = 'https://www.sports-reference.com/cfb/players/{}-1.html'
-
-# for i in n:
-#   for c in range(1,20):
-#     cl.replace('1',str(c))
-#     try:
-#       x['{}'.format(i)] = pd.read_html(cl.format(i))
-#       college['{}'.format(i)] = x['{}'.format(i)][0]
-#     except:
-#       break
-
-# print(college)
+print(college)
