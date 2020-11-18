@@ -8,7 +8,6 @@ combine = table[0]
 
 #Drop row header and Colledge column
 combine.drop(combine[combine['Player'] == 'Player'].index, inplace = True)
-combine.drop('College', axis=1, inplace = True)
 
 #Change Ht from foot-inche to cm.
 height_cm = []
@@ -27,4 +26,4 @@ for b in combine['Wt']:
 combine.insert(loc=4, column='Wt_kg', value=weight_kg)
 combine.drop(columns = 'Wt', inplace = True)
 
-combine.to_csv("d:/NIDA/Intro BADS/Project BADS6001/Project-NFL--BADS6001-/combine 2020.csv", index = False)
+combine.to_csv(r"D:\EARTH\NIDA\NFL Project\Project-NFL-BADS6001/combine 2020.csv", index = False)
