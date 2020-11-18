@@ -1,6 +1,7 @@
 #sort QB Data from Combine 2010 - 2019
 import pandas as pd
-combine = pd.read_csv(r'D:\EARTH\NIDA\NFL Project\Project-NFL-BADS6001\combine 2000 - 2019.csv',encoding= 'UTF-8')
+import numpy as np
+combine = pd.read_csv(r'D:\NIDA\Intro BADS\Project BADS6001\Project-NFL--BADS6001-\combine 2000 - 2019.csv',encoding= 'UTF-8')
 qb = combine["Pos"].isin(["QB"])
 position_QB = combine[qb]
 # position_QB.to_csv(r'D:\EARTH\NIDA\NFL Project\Project-NFL-BADS6001\NameQB.csv',index = False)
@@ -26,18 +27,25 @@ for a in keys:
   if position['Pos'].iloc[1] != 'QB':
     college.pop(a)
 
-for qb1 in college.keys():
-      df1 = college[qb1]
-      df1.columns.get_level_values(1)
-      g = df1['G'].sum()
-      df2 = df1['Year']
-      new_df = df1[df2 == 'Career']
-      name = qb1[:-1].replace('-', ' ').rstrip()
-      new_df.insert(loc = 0, column = 'Player', value = name.capitalize() )
-      new_df['G'].replace(['Nan'],g,inplace = True)
-      college[qb1] = new_df
+keys = list(college.keys())
+for z in keys:
+  if len(college[z].columns) == 15:
+    college[z].columns = ['Year','School','Conf','Class','Pos','G','Cmp','Att','Pct','Yds','Y/A','AY/A','TD','Int','Rate'] 
+  else:
+    college.pop(z)
 
-print(college)
-#concad DataFrame QB_college stats
-# lst = [college[qb_data] for qb_data in college.keys()]
-# college_stats = pd.concat(lst,ignore_index=True)
+for qb1 in college.keys():
+  df1 = college[qb1]
+  g = df1['G'].sum()
+  df2 = df1['Year']
+  new_df = df1[df2 == 'Career']
+  name = qb1[:-1].replace('-', ' ').rstrip()
+  new_df.insert(loc = 0, column = 'Player', value = name.capitalize() )
+  new_df.replace({'G':np.nan},g,inplace = True)
+  college[qb1] = new_df
+
+# concad DataFrame QB_college stats
+lst = [college[qb_data] for qb_data in college.keys()]
+college_stats = pd.concat(lst,ignore_index=True)
+college_stats.drop(columns = ['Year','Conf','Class','Pos'], inplace = True)
+college_stats.to_csv(r'D:\NIDA\Intro BADS\Project BADS6001\Project-NFL--BADS6001-\QB_college stats.csv', index = False)
