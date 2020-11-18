@@ -1,16 +1,15 @@
 #Combine Scraping Data to CSV
 import pandas as pd
 
-years = [2010,2011,2012,2013,2014,2015,2016,2017,2018,2019]
 s = 'https://www.pro-football-reference.com/draft/{}-combine.htm'
 table = {}
 df_combine = {}
 
-for year in years:
+for year in range(2000,2020):
     table['table{}'.format(year)] = pd.read_html(s.format(year))
     df_combine['combine{}'.format(year)] = table['table{}'.format(year)][0]
 
-lst = [df_combine['combine{}'.format(year)] for year in years]
+lst = [df_combine['combine{}'.format(year)] for year in range(2000,2020)]
 combine = pd.concat(lst,ignore_index=True,)
 
 #Drop row header and Colledge column
@@ -34,4 +33,4 @@ for b in combine['Wt']:
 combine.insert(loc=4, column='Wt_kg', value=weight_kg)
 combine.drop(columns = 'Wt', inplace = True)
 
-combine.to_csv("d:/NIDA/Intro BADS/Project BADS6001/Project-NFL--BADS6001-/combine 2010 - 2019.csv", index = False)
+combine.to_csv(r"d:\EARTH\NIDA\NFL Project\Project-NFL-BADS6001/combine 2000 - 2019.csv", index = False)
