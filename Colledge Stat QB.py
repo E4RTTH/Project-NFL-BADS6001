@@ -34,9 +34,10 @@ for qb1 in college.keys():
       new_df = df1[df2 == 'Career']
       name = qb1[:-1].replace('-', ' ').rstrip()
       new_df.insert(loc = 0, column = 'Player', value = name.capitalize() )
-      # new_df.replace
+      new_df['G'].replace(['Nan'],g,inplace = True)
+      college[qb1] = new_df
 
-
+print(college)
 #concad DataFrame QB_college stats
 # lst = [college[qb_data] for qb_data in college.keys()]
 # college_stats = pd.concat(lst,ignore_index=True)
