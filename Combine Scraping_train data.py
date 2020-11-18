@@ -10,7 +10,7 @@ for year in range(2000,2020):
     df_combine['combine{}'.format(year)] = table['table{}'.format(year)][0]
 
 lst = [df_combine['combine{}'.format(year)] for year in range(2000,2020)]
-combine = pd.concat(lst,ignore_index=True,)
+combine = pd.concat(lst,ignore_index=True)
 
 #Drop row header and Colledge column
 combine.drop(combine[combine['Player'] == 'Player'].index, inplace = True)
