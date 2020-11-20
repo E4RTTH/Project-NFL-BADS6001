@@ -1,7 +1,7 @@
 #load data
 import pandas as pd
 import numpy as np
-qb_stats = pd.read_csv(r'D:\EARTH\NIDA\NFL Project\Project-NFL-BADS6001\Train_data.csv',encoding= 'UTF-8')
+qb_stats = pd.read_csv(r'D:\NIDA\Intro BADS\Project BADS6001\Project-NFL-BADS6001\Train_data.csv',encoding= 'UTF-8')
 
 #Model
 import xgboost as xgb

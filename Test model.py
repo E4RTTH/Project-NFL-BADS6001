@@ -12,7 +12,7 @@ import seaborn as sns
 
 clf = xgb.Booster({'nthread': 4})
 clf.load_model('nfl.model')
-qb_stats = pd.read_csv(r'D:\EARTH\NIDA\NFL Project\Project-NFL-BADS6001\Test_data.csv',encoding= 'UTF-8')
+qb_stats = pd.read_csv(r'D:\NIDA\Intro BADS\Project BADS6001\Project-NFL-BADS6001\Test_data.csv',encoding= 'UTF-8')
 
 #model
 x = qb_stats.drop(columns = ['y'])
