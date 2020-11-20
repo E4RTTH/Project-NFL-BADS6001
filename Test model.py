@@ -9,8 +9,9 @@ from matplotlib import pyplot
 
 clf = xgb.Booster({'nthread': 4})
 clf.load_model('nfl.model')
+qb_stats = pd.read_csv(r'D:\EARTH\NIDA\NFL Project\Project-NFL-BADS6001\Test_data.csv',encoding= 'UTF-8')
 
-qb_stats = pd.read_csv(r'D:\NIDA\Intro BADS\Project BADS6001\Project-NFL--BADS6001-\Test_data.csv',encoding= 'UTF-8')
+
 x = qb_stats.drop(columns = ['y'])
 y = qb_stats['y']
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=22)
