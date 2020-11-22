@@ -17,31 +17,32 @@ ns_probs = [0 for _ in range(len(y_test))]
 clf = xgb.XGBClassifier(missing=np.nan,n_estimators=1000, learning_rate=0.2)
 clf.fit(X_train, y_train)
 lr_probs = clf.predict(X_test)
-ns_auc = roc_auc_score(y_test, ns_probs)
-lr_auc = roc_auc_score(y_test, lr_probs)
+print(type(lr_probs))
+# ns_auc = roc_auc_score(y_test, ns_probs)
+# lr_auc = roc_auc_score(y_test, lr_probs)
 
-#Confusion Metrix
-from sklearn.metrics import f1_score
-from sklearn.metrics import confusion_matrix
-import seaborn as sns
+# #Confusion Metrix
+# from sklearn.metrics import f1_score
+# from sklearn.metrics import confusion_matrix
+# import seaborn as sns
 
-cfm = confusion_matrix(y_test, lr_probs)
-fscore = f1_score(y_test, lr_probs)
-print('F-score = %.3f'% fscore)
-sns.heatmap(cfm, annot=True)
-pyplot.show()
+# cfm = confusion_matrix(y_test, lr_probs)
+# fscore = f1_score(y_test, lr_probs)
+# print('F-score = %.3f'% fscore)
+# sns.heatmap(cfm, annot=True)
+# pyplot.show()
 
-#plot AUC
-print('No Skill: ROC AUC=%.3f' % (ns_auc))
-print('Xgboost: ROC AUC=%.3f' % (lr_auc))
-ns_fpr, ns_tpr, _ = roc_curve(y_test, ns_probs)
-lr_fpr, lr_tpr, _ = roc_curve(y_test, lr_probs)
+# #plot AUC
+# print('No Skill: ROC AUC=%.3f' % (ns_auc))
+# print('Xgboost: ROC AUC=%.3f' % (lr_auc))
+# ns_fpr, ns_tpr, _ = roc_curve(y_test, ns_probs)
+# lr_fpr, lr_tpr, _ = roc_curve(y_test, lr_probs)
 
-pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='No Skill')
-pyplot.plot(lr_fpr, lr_tpr, marker='.', label='Xgboost')
-pyplot.xlabel('False Positive Rate')
-pyplot.ylabel('True Positive Rate')
-pyplot.legend()
-pyplot.show()
+# pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='No Skill')
+# pyplot.plot(lr_fpr, lr_tpr, marker='.', label='Xgboost')
+# pyplot.xlabel('False Positive Rate')
+# pyplot.ylabel('True Positive Rate')
+# pyplot.legend()
+# pyplot.show()
 
-clf.save_model('nfl.model')
+# clf.save_model('nfl.model')
