@@ -2,10 +2,10 @@ import pandas as pd
 import numpy as np
 
 #Load data from combine & college stats
-combine_train = pd.read_csv(r'D:\EARTH\NIDA\NFL Project\Project-NFL-BADS6001\NameQB.csv',encoding= 'UTF-8')
-college_train = pd.read_csv(r'D:\EARTH\NIDA\NFL Project\Project-NFL-BADS6001\QB_college stats.csv',encoding= 'UTF-8')
-combine_test = pd.read_csv(r'D:\EARTH\NIDA\NFL Project\Project-NFL-BADS6001\NameQB(test).csv',encoding= 'UTF-8')
-college_test = pd.read_csv(r'D:\EARTH\NIDA\NFL Project\Project-NFL-BADS6001\QB_college stats(test).csv',encoding= 'UTF-8')
+combine_train = pd.read_csv(r'D:\NIDA\Intro BADS\Project BADS6001\Project-NFL-BADS6001\NameQB.csv',encoding= 'UTF-8')
+college_train = pd.read_csv(r'D:\NIDA\Intro BADS\Project BADS6001\Project-NFL-BADS6001\QB_college stats.csv',encoding= 'UTF-8')
+combine_test = pd.read_csv(r'D:\NIDA\Intro BADS\Project BADS6001\Project-NFL-BADS6001\NameQB(test).csv',encoding= 'UTF-8')
+college_test = pd.read_csv(r'D:\NIDA\Intro BADS\Project BADS6001\Project-NFL-BADS6001\QB_college stats(test).csv',encoding= 'UTF-8')
 
 #Clean combine data
 def clean_df(combine):
@@ -42,10 +42,10 @@ def overs(data):
 train = clean_df(combine_train)
 train_df = join_df(train,college_train)
 final_train = overs(train_df)
-final_train.to_csv(r'D:\EARTH\NIDA\NFL Project\Project-NFL-BADS6001\Train_data.csv',index=False)
+final_train.to_csv(r'D:\NIDA\Intro BADS\Project BADS6001\Project-NFL-BADS6001\Train_data.csv',index=False)
 
 #test data
 test = clean_df(combine_test)
 test_df = join_df(test,college_test)
 final_test = overs(test_df)
-final_test.to_csv(r'D:\EARTH\NIDA\NFL Project\Project-NFL-BADS6001\Test_data.csv',index=False)
+final_test.to_csv(r'D:\NIDA\Intro BADS\Project BADS6001\Project-NFL-BADS6001\Test_data.csv',index=False)
