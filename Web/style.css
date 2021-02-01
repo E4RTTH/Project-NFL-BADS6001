@@ -37,7 +37,6 @@ nav{
 .form{
     align-items: center;
     width: 50%;
-    position: relative;
     height: 50px;
     font-family: sans-serif;
 }
@@ -51,7 +50,7 @@ nav{
 }
 
 .form label{
-    position: absolute;
+    position: relative;
     bottom: 0px;
     width: 0;
     height: 135%;
@@ -79,4 +78,8 @@ button:active {
     background-color:#494949;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
+}
+
+button:focus {
+    outline:0;
 }
